@@ -511,6 +511,7 @@ a:hover { color: var(--jay); text-decoration-style: wavy; }
 }
 
 @media (max-width: 600px) {
+  html { overflow-x: clip; } /* tilted cards may poke a pixel past the edge */
   body { padding: 14px 8px 40px; font-size: 1.08rem; }
   .sheet { padding: 18px 18px 30px; }
   .banner { margin: 18px -8px 0; }
@@ -525,6 +526,263 @@ a:hover { color: var(--jay); text-decoration-style: wavy; }
   .card .stamp { right: -6px; width: 70px; height: 70px; font-size: .68rem; }
   .sign-quote { font-size: 1.8rem; padding: 0 6px; }
   .marquee { margin: 34px -18px 0; }
+}
+
+/* =========================================================
+   HOME
+   ========================================================= */
+
+.intro {
+  text-align: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.65rem;
+  line-height: 1.3;
+  max-width: 34em;
+  margin: 30px auto 6px;
+}
+.intro + .intro-sub {
+  text-align: center;
+  font-family: var(--type);
+  font-size: .85rem;
+  color: var(--ink-soft);
+  margin: 0 0 8px;
+}
+
+/* the big snapshot, with a pencilled note and an arrow */
+.hero {
+  position: relative;
+  margin: 34px auto 10px;
+}
+.hero .snap {
+  width: 74%;
+  margin: 0 auto;
+  --r: -1.4deg;
+  padding: 12px 12px 0;
+}
+.hero .snap::before { width: 120px; margin-left: -60px; top: -14px; }
+.hero .snap figcaption { font-size: 1.6rem; padding: 8px 2px 12px; }
+.hero .scribble {
+  position: absolute;
+  right: -4px;
+  top: 26%;
+  width: 118px;
+  z-index: 4;
+  font-family: var(--hand);
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--squirrel);
+  transform: rotate(6deg);
+}
+.hero .scribble svg { display: block; width: 74px; height: 60px; margin: 4px 0 0 -14px; overflow: visible; }
+
+/* blog-style section headings on the home page */
+.story h2.label, .label {
+  font-family: var(--type);
+  font-size: .78rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 36px 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.label::after { content: ""; flex: 1; border-top: 1px dashed var(--pencil); }
+
+/* maker of the month: a paper tag tied on with string */
+.maker-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 22px;
+  background: #fbf5ea;
+  padding: 24px 26px 22px 24px;
+  margin: 8px 6px 10px 0;
+  box-shadow: 0 1px 1px rgba(0,0,0,.12), 0 10px 18px -8px rgba(80,40,50,.45);
+  transform: rotate(.8deg);
+  clip-path: polygon(0 0, calc(100% - 26px) 0, 100% 26px, 100% 100%, 0 100%);
+}
+.maker-card::after { /* the punched hole for the string */
+  content: "";
+  position: absolute;
+  right: 11px; top: 11px;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--paper);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.4);
+}
+.maker-card .frame {
+  border: 1.5px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+  padding: 8px;
+  align-self: start;
+  margin: 4px;
+}
+.maker-card .frame img { mix-blend-mode: multiply; }
+.maker-card .frame p {
+  font-family: var(--hand);
+  font-size: 1.15rem;
+  line-height: 1;
+  color: var(--pencil);
+  text-align: center;
+  margin: 4px 0 0;
+}
+.maker-card h3 {
+  font-family: var(--serif-sc);
+  font-weight: 400;
+  font-size: 1.9rem;
+  line-height: 1;
+  letter-spacing: .03em;
+  margin: 0;
+}
+.maker-card .where {
+  font-family: var(--type);
+  font-size: .82rem;
+  color: var(--ink-soft);
+  margin: 6px 0 12px;
+}
+.maker-card p { margin: 0 0 .8em; }
+.maker-card .elf-says {
+  font-family: var(--hand);
+  font-size: 1.45rem;
+  line-height: 1.05;
+  color: var(--hat);
+  transform: rotate(-1.5deg);
+}
+.maker-card .go {
+  font-family: var(--type);
+  font-size: .9rem;
+}
+
+/* latest journal entry, like a blog post from 2004 */
+.post { margin-top: 6px; }
+.post .post-date {
+  font-family: var(--type);
+  font-size: .8rem;
+  color: var(--ink-soft);
+}
+.post h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 1.15;
+  margin: 2px 0 10px;
+}
+.post h3 a { color: var(--ink); text-decoration: none; }
+.post h3 a:hover { color: var(--hat); text-decoration: underline wavy var(--squirrel); }
+.post p { margin: 0 0 .9em; }
+.post .byline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--hand);
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--ink-soft);
+  margin: 4px 0 14px;
+}
+.post .byline img { width: 34px; mix-blend-mode: multiply; }
+.post .more { font-family: var(--type); font-size: .9rem; }
+.post-foot {
+  font-family: var(--type);
+  font-size: .78rem;
+  color: var(--ink-soft);
+  border-top: 1px dashed var(--pencil);
+  padding-top: 6px;
+  margin-top: 16px;
+}
+
+/* the letter sign-up: an envelope */
+.envelope {
+  position: relative;
+  background: #fbf5ea;
+  padding: 58px 18px 18px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.12), 0 10px 16px -8px rgba(80,40,50,.45);
+  transform: rotate(-1.2deg);
+  overflow: hidden;
+}
+.envelope::before { /* the flap */
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 52px;
+  background: linear-gradient(to bottom right, transparent 49.5%, rgba(87,77,69,.45) 50%, transparent 51%) left / 50% 100% no-repeat,
+              linear-gradient(to bottom left, transparent 49.5%, rgba(87,77,69,.45) 50%, transparent 51%) right / 50% 100% no-repeat;
+}
+.envelope .postage {
+  position: absolute;
+  top: 8px; right: 10px;
+  width: 44px; height: 52px;
+  background: var(--hat);
+  color: #fbf5ea;
+  font-family: var(--serif-sc);
+  font-size: .62rem;
+  line-height: 1.05;
+  text-align: center;
+  display: grid; place-items: center;
+  outline: 3px dotted #fbf5ea;
+  outline-offset: -5px;
+  transform: rotate(4deg);
+}
+.envelope h3 { border: 0; box-shadow: none; margin-bottom: 4px; padding: 0; }
+.envelope p { margin: 0 0 10px; font-size: .98rem; }
+.envelope label {
+  display: block;
+  font-family: var(--type);
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.envelope input {
+  width: 100%;
+  font: inherit;
+  font-family: var(--type);
+  font-size: .95rem;
+  background: transparent;
+  border: 0;
+  border-bottom: 1.5px solid var(--ink);
+  padding: 6px 2px 3px;
+  margin: 2px 0 12px;
+  color: var(--ink);
+}
+.envelope input:disabled { border-bottom-style: dashed; color: var(--pencil); }
+.envelope button {
+  font-family: var(--type);
+  font-size: .9rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  border-radius: 3px 6px 4px 5px;
+  padding: 5px 12px;
+  box-shadow: 2px 2px 0 var(--ink);
+  cursor: pointer;
+}
+.envelope button:disabled { cursor: not-allowed; box-shadow: none; color: var(--pencil); border-color: var(--pencil); }
+.envelope .soon {
+  font-family: var(--hand);
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--squirrel);
+  margin: 10px 0 0;
+  transform: rotate(-2deg);
+}
+
+.elf-hello { display: flex; gap: 12px; align-items: flex-start; }
+.elf-hello img { width: 56px; flex: none; mix-blend-mode: multiply; transform: rotate(-4deg); }
+
+@media (max-width: 860px) {
+  .hero .scribble { position: static; width: auto; text-align: center; transform: rotate(-2deg); margin-top: 12px; }
+  .hero .scribble svg { display: none; }
+  .hero .snap { width: 100%; }
+}
+@media (max-width: 600px) {
+  .intro { font-size: 1.35rem; margin-top: 22px; }
+  .maker-card { grid-template-columns: 1fr; padding: 22px 18px; margin-right: 0; }
+  .maker-card .frame { max-width: 220px; justify-self: center; }
+  .post h3 { font-size: 1.5rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

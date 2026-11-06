@@ -4,11 +4,141 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>My Magical Tiny World</title>
-<!-- Temporary: the Home page isn't built yet, so the front door leads to About. -->
-<meta http-equiv="refresh" content="0; url=about.html">
+<meta name="description" content="A magical tiny world where handmade elves review the best 1:12 miniatures. Handmade only, starting with makers around Seattle and Washington State.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=Reenie+Beanie&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tiny.css">
 <link rel="icon" href="assets/img/favicon.png">
 </head>
-<body style="background:#26362a;color:#f2e8d2;font-family:Georgia,serif;text-align:center;padding:60px 16px">
-<p>The elves are still building the front door. <a href="about.html" style="color:#f2e8d2">Come in through the side &rarr;</a></p>
+<body>
+
+<div class="sheet">
+
+  <header class="masthead">
+    <a class="logo" href="index.html"><img src="assets/img/logo.png" width="900" height="450" alt="Magical Tiny World"></a>
+    <p class="tagline">where handmade elves review the best 1:12 miniatures</p>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="my-tiny-world.html">My Tiny World</a>
+      <a href="makers.html">Makers</a>
+      <a href="journal.html">Journal</a>
+      <a href="about.html">About</a>
+      <a href="join.html">Join</a>
+    </nav>
+  </header>
+
+  <p class="intro">Tiny houses, tiny food, tiny furniture, every piece made by hand, and a few small elves with very big opinions about all of it.</p>
+  <p class="intro-sub">1:12 scale only &middot; handmade only &middot; nothing for sale, just things to look at closely</p>
+
+  <div class="hero">
+    <figure class="snap">
+      <img src="assets/img/hero-elves.jpg" width="1500" height="795" alt="A crowd of small hand-painted plaster elves in pink, brown, purple, blue, orange, white and green, gathered on a painted cobblestone path among spotted mushrooms.">
+      <figcaption>the magical tiny elves, out for a walk</figcaption>
+    </figure>
+    <div class="scribble" aria-hidden="true">
+      every one painted by hand!
+      <svg viewBox="0 0 74 60"><path d="M58 4c-6 14-18 30-44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M14 48l13-2M14 48l3-12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </div>
+  </div>
+
+  <div class="columns">
+
+    <main class="story">
+
+      <h2 class="label">Maker of the month &middot; November</h2>
+
+      <article class="maker-card">
+        <div class="frame">
+          <img src="assets/img/spot-round-house.jpg" width="500" height="460" alt="Ink sketch of a round elf house with a domed roof, carved posts and little steps.">
+          <p>photos coming soon, straight from the maker</p>
+        </div>
+        <div>
+          <h3>Miniette</h3>
+          <p class="where">Seattle, Washington &middot; 1:12 furniture</p>
+          <p>Contemporary furniture at 1:12, made in small batches in a Seattle studio. Real modern design, shrunk down until an elf can sit on it.</p>
+          <p class="elf-says">&ldquo;We would like the sofa, please.&rdquo; &mdash; the elves</p>
+          <p class="go"><a href="https://www.miniette.com" rel="noopener">Visit Miniette &rarr;</a> &nbsp;&middot;&nbsp; <a href="makers.html">all makers</a></p>
+        </div>
+      </article>
+
+      <h2 class="label">Latest from the Journal</h2>
+
+      <article class="post">
+        <span class="post-date">Thursday, 5 November 2026</span>
+        <h3><a href="journal.html">The elves are unpacking</a></h3>
+        <p class="byline"><img src="assets/img/spot-elf-one.png" width="173" height="300" alt=""> written by the elves, all of them at once</p>
+        <p>We have arrived, and the place is very big. Everything here is made at 1:12, which means a chair is exactly the right size for climbing and a teacup makes a decent bath.</p>
+        <p>Gisi says we are going to visit makers and write down what we think of their work. We think this is an excellent idea. We have already started a list of things to sit on.</p>
+        <p class="more"><a href="journal.html">Read the rest &rarr;</a></p>
+        <p class="post-foot">Filed under: hello &middot; 0 crumbs left behind</p>
+      </article>
+
+    </main>
+
+    <aside class="sidebar">
+
+      <section>
+        <div class="envelope">
+          <span class="postage">1:12<br>post</span>
+          <h3>A letter, now &amp; then</h3>
+          <p>News from the tiny world: a new maker, a new review, a new piece from the workbench. No more than once a month.</p>
+          <form onsubmit="return false">
+            <label for="email">Your address</label>
+            <input id="email" type="email" placeholder="you@example.com" disabled>
+            <button type="submit" disabled>Post it</button>
+          </form>
+          <p class="soon">the post box opens soon</p>
+        </div>
+      </section>
+
+      <section>
+        <h3>Who are the elves?</h3>
+        <div class="elf-hello">
+          <img src="assets/img/spot-elf-one.png" width="173" height="300" alt="Ink drawing of an elf in a tall, crooked hat.">
+          <p>Two-inch elves, first cast in plaster and sold on the pavement in Dublin. Now they live at 1:12 and review the things they live among. <a href="about.html">Their story &rarr;</a></p>
+        </div>
+      </section>
+
+      <section>
+        <h3>Pages</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="my-tiny-world.html">My Tiny World</a></li>
+          <li><a href="makers.html">Makers</a></li>
+          <li><a href="journal.html">Journal</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="join.html">Join the letter</a></li>
+        </ul>
+      </section>
+
+      <section class="elsewhere">
+        <p>Last updated 5 November 2026<br>Made by hand, on purpose.</p>
+      </section>
+
+    </aside>
+
+  </div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span>1:12 scale only</span><span class="dot">&#9752;</span>
+      <span>handmade only, no AI</span><span class="dot">&#9752;</span>
+      <span>Seattle &amp; Washington makers first</span><span class="dot">&#9752;</span>
+      <span>the elves have opinions</span><span class="dot">&#9752;</span>
+      <span>1:12 scale only</span><span class="dot">&#9752;</span>
+      <span>handmade only, no AI</span><span class="dot">&#9752;</span>
+      <span>Seattle &amp; Washington makers first</span><span class="dot">&#9752;</span>
+      <span>the elves have opinions</span><span class="dot">&#9752;</span>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <p>&copy; 2026 Gisi Zimerman &middot; My Magical Tiny World &middot; every elf and every drawing on this site was made by hand</p>
+  </footer>
+
+</div>
+
+<script src="js/tiny.js" defer></script>
 </body>
 </html>

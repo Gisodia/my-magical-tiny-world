@@ -8,7 +8,7 @@ Plain HTML and CSS, hosted on GitHub Pages. No build step, no backend, no paymen
 
 | Page | File | Status |
 | --- | --- | --- |
-| Home | `index.html` | not built yet (temporarily redirects to About) |
+| Home | `index.html` | done (newsletter form waits on a service) |
 | My Tiny World | `my-tiny-world.html` | not built yet |
 | Makers | `makers.html` | not built yet |
 | Journal | `journal.html` | not built yet |
