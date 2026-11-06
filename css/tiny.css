@@ -3,12 +3,12 @@
    Hand-tuned on purpose: nothing here is perfectly straight. */
 
 :root {
-  --paper: #f2e8d2;
-  --paper-shade: #e6d8b9;
-  --paper-edge: #d8c69f;
+  --paper: #dfc0b6;          /* dusty, slightly dirty pink */
+  --paper-shade: #d1aca1;
+  --paper-edge: #bf978b;
   --ink: #1f1b16;
   --ink-soft: #4a4238;
-  --pencil: #6d665c;
+  --pencil: #574d45;
   --hat: #1a6b3c;          /* the green of the hat in the logo */
   --moss: #4f6b2e;
   --oak: #6b4a2b;
@@ -63,7 +63,7 @@ a:hover { color: var(--jay); text-decoration-style: wavy; }
   background-color: var(--paper);
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .33 0 0 0 0 .2 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E"),
-    radial-gradient(ellipse at 50% 40%, transparent 55%, rgba(120, 90, 40, .16) 100%);
+    radial-gradient(ellipse at 50% 40%, transparent 55%, rgba(105, 55, 50, .22) 100%);
   -webkit-mask:
     linear-gradient(#000 0 0) center / calc(100% - 20px) calc(100% - 20px) no-repeat,
     linear-gradient(#000 0 0) center / calc(100% - 20px) 100% no-repeat,
@@ -174,7 +174,7 @@ a:hover { color: var(--jay); text-decoration-style: wavy; }
   line-height: 1;
   color: var(--ink-soft);
   transform: rotate(-4deg);
-  background: rgba(242, 232, 210, .8);
+  background: rgba(223, 192, 182, .85);
   padding: 2px 8px;
 }
 
