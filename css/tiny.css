@@ -1,0 +1,538 @@
+/* My Magical Tiny World
+   One stylesheet for the whole site. Paper, ink, oak and moss.
+   Hand-tuned on purpose: nothing here is perfectly straight. */
+
+:root {
+  --paper: #f2e8d2;
+  --paper-shade: #e6d8b9;
+  --paper-edge: #d8c69f;
+  --ink: #1f1b16;
+  --ink-soft: #4a4238;
+  --pencil: #6d665c;
+  --hat: #1a6b3c;          /* the green of the hat in the logo */
+  --moss: #4f6b2e;
+  --oak: #6b4a2b;
+  --squirrel: #a8502a;     /* red squirrel, used for marks and pins */
+  --jay: #3b6aa0;          /* the blue on a jay's wing: links on hover only */
+  --cloth: #26362a;        /* book-cloth backdrop */
+  --tape: rgba(233, 222, 178, 0.78);
+
+  --serif: "IM Fell English", "Iowan Old Style", Georgia, serif;
+  --serif-sc: "IM Fell English SC", "IM Fell English", Georgia, serif;
+  --type: "Courier Prime", "Courier New", monospace;
+  --hand: "Reenie Beanie", "Bradley Hand", cursive;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.18rem;
+  line-height: 1.62;
+  background-color: var(--cloth);
+  /* woven book-cloth: two soft weaves plus grain */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(45deg, rgba(255,255,255,.025) 0 2px, transparent 2px 5px),
+    repeating-linear-gradient(-45deg, rgba(0,0,0,.08) 0 2px, transparent 2px 5px);
+  padding: 34px 16px 60px;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--hat); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--jay); text-decoration-style: wavy; }
+
+/* ---------- the page: one sheet of paper with a deckled edge ---------- */
+
+.sheet {
+  position: relative;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 26px 46px 40px;
+}
+.sheet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--paper);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .33 0 0 0 0 .2 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse at 50% 40%, transparent 55%, rgba(120, 90, 40, .16) 100%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) center / calc(100% - 20px) calc(100% - 20px) no-repeat,
+    linear-gradient(#000 0 0) center / calc(100% - 20px) 100% no-repeat,
+    linear-gradient(#000 0 0) center / 100% calc(100% - 20px) no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='137'%3E%3Cpath d='M10.0 0.0 L8.5 0.0 L7.6 4.2 L5.9 8.6 L9.9 10.9 L8.3 16.2 L3.5 19.1 L4.6 23.0 L5.8 26.9 L5.9 29.5 L6.6 35.0 L5.6 40.0 L5.1 42.2 L8.0 46.6 L4.4 48.7 L5.3 52.6 L5.4 58.1 L7.4 63.8 L7.1 69.0 L4.3 74.7 L9.1 77.1 L3.7 80.0 L5.9 83.8 L6.7 87.0 L7.7 90.5 L6.2 94.8 L5.6 100.5 L4.4 106.2 L5.6 112.1 L4.4 114.8 L4.1 120.6 L5.4 124.9 L4.6 127.8 L8.1 132.1 L4.4 134.3 L8.5 137.0 L10.0 137.0Z'/%3E%3C/svg%3E") left 10px / 10px 137px repeat-y,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='137'%3E%3Cpath d='M0.0 0.0 L0.6 0.0 L2.7 5.2 L1.9 7.8 L5.7 12.9 L4.0 15.1 L4.7 17.2 L5.7 20.6 L3.3 26.5 L2.0 32.5 L3.9 34.8 L1.3 36.9 L4.0 40.5 L0.3 43.2 L2.0 48.6 L5.8 54.5 L3.0 58.0 L4.2 62.1 L3.6 66.4 L6.1 70.9 L2.8 75.0 L1.5 79.8 L6.4 83.0 L3.6 87.1 L2.7 89.2 L0.1 93.5 L4.1 98.0 L4.1 100.2 L4.4 104.1 L4.6 107.5 L0.1 112.4 L4.4 114.7 L1.6 120.5 L3.9 124.3 L2.4 127.6 L2.4 130.9 L2.0 135.3 L0.6 137.0 L0.0 137.0Z'/%3E%3C/svg%3E") right 10px / 10px 137px repeat-y,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='137' height='10'%3E%3Cpath d='M0.0 10.0 L0.0 5.0 L2.1 6.3 L7.0 8.0 L9.9 4.8 L12.9 8.8 L16.6 5.5 L19.0 7.9 L22.4 4.6 L26.1 4.4 L28.8 7.8 L33.4 4.2 L37.2 8.5 L39.7 6.6 L42.5 4.8 L47.8 8.8 L50.9 4.8 L55.5 4.8 L58.9 9.2 L62.0 4.8 L65.1 7.7 L68.8 7.3 L72.4 4.0 L75.1 10.0 L80.8 4.3 L86.8 7.2 L92.6 4.0 L95.5 5.2 L100.8 5.7 L104.9 8.1 L108.3 8.5 L110.5 6.2 L113.7 4.7 L115.9 4.1 L120.6 4.0 L126.2 4.2 L130.5 9.9 L135.5 8.9 L137.0 5.0 L137.0 10.0Z'/%3E%3C/svg%3E") 10px top / 137px 10px repeat-x,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='137' height='10'%3E%3Cpath d='M0.0 0.0 L0.0 4.3 L4.1 2.7 L9.9 4.0 L13.2 1.6 L18.7 3.1 L23.8 2.3 L26.6 3.5 L31.9 1.1 L37.0 6.0 L42.2 5.4 L44.3 4.1 L49.7 0.3 L52.8 1.7 L56.9 2.7 L60.8 5.0 L62.8 0.4 L65.3 0.8 L67.6 6.3 L73.0 0.6 L77.0 2.1 L80.3 2.3 L84.9 3.8 L88.3 1.2 L91.6 0.8 L95.9 4.7 L99.4 0.5 L102.1 2.4 L106.5 5.1 L110.0 5.2 L114.5 2.8 L118.0 3.2 L122.8 2.7 L127.6 3.0 L130.6 3.5 L135.4 0.5 L137.0 4.3 L137.0 0.0Z'/%3E%3C/svg%3E") 10px bottom / 137px 10px repeat-x;
+  mask:
+    linear-gradient(#000 0 0) center / calc(100% - 20px) calc(100% - 20px) no-repeat,
+    linear-gradient(#000 0 0) center / calc(100% - 20px) 100% no-repeat,
+    linear-gradient(#000 0 0) center / 100% calc(100% - 20px) no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='137'%3E%3Cpath d='M10.0 0.0 L8.5 0.0 L7.6 4.2 L5.9 8.6 L9.9 10.9 L8.3 16.2 L3.5 19.1 L4.6 23.0 L5.8 26.9 L5.9 29.5 L6.6 35.0 L5.6 40.0 L5.1 42.2 L8.0 46.6 L4.4 48.7 L5.3 52.6 L5.4 58.1 L7.4 63.8 L7.1 69.0 L4.3 74.7 L9.1 77.1 L3.7 80.0 L5.9 83.8 L6.7 87.0 L7.7 90.5 L6.2 94.8 L5.6 100.5 L4.4 106.2 L5.6 112.1 L4.4 114.8 L4.1 120.6 L5.4 124.9 L4.6 127.8 L8.1 132.1 L4.4 134.3 L8.5 137.0 L10.0 137.0Z'/%3E%3C/svg%3E") left 10px / 10px 137px repeat-y,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='137'%3E%3Cpath d='M0.0 0.0 L0.6 0.0 L2.7 5.2 L1.9 7.8 L5.7 12.9 L4.0 15.1 L4.7 17.2 L5.7 20.6 L3.3 26.5 L2.0 32.5 L3.9 34.8 L1.3 36.9 L4.0 40.5 L0.3 43.2 L2.0 48.6 L5.8 54.5 L3.0 58.0 L4.2 62.1 L3.6 66.4 L6.1 70.9 L2.8 75.0 L1.5 79.8 L6.4 83.0 L3.6 87.1 L2.7 89.2 L0.1 93.5 L4.1 98.0 L4.1 100.2 L4.4 104.1 L4.6 107.5 L0.1 112.4 L4.4 114.7 L1.6 120.5 L3.9 124.3 L2.4 127.6 L2.4 130.9 L2.0 135.3 L0.6 137.0 L0.0 137.0Z'/%3E%3C/svg%3E") right 10px / 10px 137px repeat-y,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='137' height='10'%3E%3Cpath d='M0.0 10.0 L0.0 5.0 L2.1 6.3 L7.0 8.0 L9.9 4.8 L12.9 8.8 L16.6 5.5 L19.0 7.9 L22.4 4.6 L26.1 4.4 L28.8 7.8 L33.4 4.2 L37.2 8.5 L39.7 6.6 L42.5 4.8 L47.8 8.8 L50.9 4.8 L55.5 4.8 L58.9 9.2 L62.0 4.8 L65.1 7.7 L68.8 7.3 L72.4 4.0 L75.1 10.0 L80.8 4.3 L86.8 7.2 L92.6 4.0 L95.5 5.2 L100.8 5.7 L104.9 8.1 L108.3 8.5 L110.5 6.2 L113.7 4.7 L115.9 4.1 L120.6 4.0 L126.2 4.2 L130.5 9.9 L135.5 8.9 L137.0 5.0 L137.0 10.0Z'/%3E%3C/svg%3E") 10px top / 137px 10px repeat-x,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='137' height='10'%3E%3Cpath d='M0.0 0.0 L0.0 4.3 L4.1 2.7 L9.9 4.0 L13.2 1.6 L18.7 3.1 L23.8 2.3 L26.6 3.5 L31.9 1.1 L37.0 6.0 L42.2 5.4 L44.3 4.1 L49.7 0.3 L52.8 1.7 L56.9 2.7 L60.8 5.0 L62.8 0.4 L65.3 0.8 L67.6 6.3 L73.0 0.6 L77.0 2.1 L80.3 2.3 L84.9 3.8 L88.3 1.2 L91.6 0.8 L95.9 4.7 L99.4 0.5 L102.1 2.4 L106.5 5.1 L110.0 5.2 L114.5 2.8 L118.0 3.2 L122.8 2.7 L127.6 3.0 L130.6 3.5 L135.4 0.5 L137.0 4.3 L137.0 0.0Z'/%3E%3C/svg%3E") 10px bottom / 137px 10px repeat-x;
+  transform: rotate(-0.35deg); /* the paper sits a little crooked; the text doesn't */
+}
+.sheet::after { /* the shadow under the paper, kept separate so the torn mask doesn't cut it off */
+  content: "";
+  position: absolute;
+  inset: 8px 6px;
+  z-index: -2;
+  box-shadow: 0 18px 40px rgba(0,0,0,.5), 0 3px 10px rgba(0,0,0,.35);
+  transform: rotate(-0.35deg);
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  text-align: center;
+  padding-top: 8px;
+}
+.masthead .logo {
+  display: inline-block;
+  width: min(430px, 82%);
+}
+.masthead .logo img { width: 100%; }
+.tagline {
+  font-family: var(--hand);
+  font-size: 1.55rem;
+  line-height: 1.1;
+  color: var(--ink-soft);
+  margin: -6px 0 0;
+  transform: rotate(-1.2deg);
+}
+
+/* nav: typewritten, struck on the paper */
+.nav {
+  font-family: var(--type);
+  font-size: .92rem;
+  letter-spacing: .02em;
+  margin: 18px auto 0;
+  padding: 7px 0 6px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  box-shadow: 0 3px 0 -2px var(--ink);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px 0;
+}
+.nav a {
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0 13px;
+  position: relative;
+}
+.nav a + a::before {
+  content: "\2767"; /* rotated floral heart */
+  position: absolute;
+  left: -7px;
+  color: var(--hat);
+  font-family: var(--serif);
+}
+.nav a:hover { color: var(--hat); text-decoration: underline wavy var(--squirrel); }
+.nav a[aria-current="page"] {
+  background: radial-gradient(ellipse at center, rgba(26,107,60,.16) 0 60%, transparent 72%);
+}
+.nav a[aria-current="page"]::after {
+  /* a pencil circle around where you are */
+  content: "";
+  position: absolute;
+  inset: -6px -2px -7px -4px;
+  border: 1.5px solid var(--pencil);
+  border-radius: 48% 52% 45% 55% / 60% 45% 55% 40%;
+  transform: rotate(-3deg);
+  pointer-events: none;
+}
+
+/* ---------- banner: ink drawing on a torn strip ---------- */
+
+.banner {
+  margin: 26px -18px 0;
+  position: relative;
+}
+.banner img {
+  width: 100%;
+  mix-blend-mode: multiply;
+  clip-path: polygon(0 0, 100% 0, 100.0% 97.7%, 98.5% 95.4%, 97.1% 96.2%, 95.0% 99.6%, 92.7% 99.7%, 90.5% 99.5%, 89.1% 97.0%, 86.0% 99.1%, 84.3% 95.6%, 80.9% 96.0%, 78.8% 93.2%, 77.5% 94.0%, 75.6% 99.0%, 74.1% 97.8%, 71.0% 98.7%, 68.5% 95.5%, 66.4% 96.2%, 65.1% 99.6%, 63.4% 95.2%, 61.2% 97.8%, 58.7% 96.8%, 56.8% 94.4%, 54.0% 98.3%, 51.5% 96.3%, 48.3% 94.9%, 46.4% 93.1%, 44.9% 97.1%, 42.0% 98.9%, 39.7% 99.7%, 36.9% 94.6%, 34.4% 93.9%, 32.5% 95.1%, 29.9% 95.9%, 27.7% 94.1%, 24.3% 96.7%, 21.6% 99.6%, 18.8% 95.5%, 15.3% 94.2%, 13.4% 97.3%, 10.7% 99.8%, 8.4% 98.8%, 7.0% 99.6%, 4.0% 99.1%, 2.2% 97.3%, 0 96%);
+}
+.banner .note {
+  position: absolute;
+  right: 4%;
+  bottom: 9%;
+  font-family: var(--hand);
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--ink-soft);
+  transform: rotate(-4deg);
+  background: rgba(242, 232, 210, .8);
+  padding: 2px 8px;
+}
+
+/* ---------- two columns, like a blog from 2004 ---------- */
+
+.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 270px;
+  gap: 0 44px;
+  margin-top: 30px;
+}
+
+.story { min-width: 0; }
+
+.page-title {
+  font-family: var(--serif-sc);
+  font-weight: 400;
+  font-size: 2.9rem;
+  line-height: 1;
+  letter-spacing: .04em;
+  margin: 4px 0 0;
+}
+.page-title + .aside-hand {
+  display: block;
+  font-family: var(--hand);
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--squirrel);
+  margin: 4px 0 18px 40px;
+  transform: rotate(-2deg);
+}
+.dateline {
+  font-family: var(--type);
+  font-size: .82rem;
+  color: var(--ink-soft);
+  border-bottom: 1px dashed var(--pencil);
+  padding-bottom: 6px;
+  margin: 0 0 22px;
+}
+
+.story h2 {
+  font-family: var(--serif-sc);
+  font-weight: 400;
+  font-size: 1.6rem;
+  letter-spacing: .03em;
+  line-height: 1.15;
+  margin: 38px 0 8px;
+  clear: none;
+}
+.story h2 .num {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--hat);
+  margin-right: 6px;
+}
+
+.story p { margin: 0 0 1em; hanging-punctuation: first; }
+
+.story p.opening::first-letter {
+  float: left;
+  font-family: var(--serif);
+  font-size: 4.7rem;
+  line-height: .78;
+  padding: 6px 10px 0 0;
+  color: var(--hat);
+}
+
+.fleuron {
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--pencil);
+  letter-spacing: .6em;
+  margin: 30px 0 4px;
+  clear: both;
+}
+
+/* ---------- photos: snapshots taped to the page ---------- */
+
+.snap {
+  position: relative;
+  background: #fbf8f0;
+  padding: 9px 9px 0;
+  box-shadow: 0 1px 1px rgba(0,0,0,.15), 0 8px 16px -6px rgba(60,40,10,.45);
+  margin: 6px 0 18px;
+  z-index: 2;
+  transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(var(--r, 0deg));
+}
+@media (pointer: fine) {
+  .snap { cursor: grab; user-select: none; }
+  .snap.dragging { cursor: grabbing; z-index: 9; box-shadow: 0 2px 3px rgba(0,0,0,.2), 0 20px 30px -8px rgba(60,40,10,.55); }
+}
+.snap img { pointer-events: none; filter: sepia(.12) saturate(.92) contrast(.97); }
+.snap figcaption {
+  font-family: var(--hand);
+  font-size: 1.35rem;
+  line-height: 1.05;
+  color: var(--ink-soft);
+  padding: 6px 2px 9px;
+  text-align: center;
+}
+.snap::before { /* tape */
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 92px;
+  height: 26px;
+  margin-left: -46px;
+  background: var(--tape);
+  box-shadow: 0 1px 2px rgba(0,0,0,.12);
+  transform: rotate(-4deg);
+  clip-path: polygon(3% 0, 97% 4%, 100% 30%, 96% 55%, 99% 100%, 2% 96%, 0 70%, 4% 40%);
+}
+.snap.right { float: right; width: 42%; margin: 8px -34px 22px 26px; --r: 2.4deg; }
+.snap.left  { float: left;  width: 40%; margin: 8px 28px 22px -30px; --r: -2.1deg; }
+.snap.left::before { left: 30%; transform: rotate(5deg); }
+.snap.small { width: 33%; }
+.snap.pin::before { /* a pin instead of tape */
+  width: 14px; height: 14px; top: -5px; margin-left: -7px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #e98b5c, var(--squirrel) 55%, #5a2410);
+  clip-path: none; box-shadow: 1px 2px 2px rgba(0,0,0,.35); transform: none;
+}
+
+/* a pair of snapshots overlapping */
+.pile { position: relative; clear: both; height: 330px; margin: 26px 0 10px; }
+.pile .snap { position: absolute; width: 46%; }
+.pile .snap:nth-child(1) { left: 0; top: 10px; --r: -3.5deg; }
+.pile .snap:nth-child(2) { left: 30%; top: 40px; --r: 2deg; z-index: 3; }
+.pile .snap:nth-child(3) { right: -40px; top: 0; --r: 5deg; width: 33%; }
+
+/* ---------- pencil drawings sit straight on the paper ---------- */
+
+.drawing { margin: 10px 0 18px; }
+.drawing img { mix-blend-mode: multiply; filter: contrast(1.05); }
+.drawing figcaption {
+  font-family: var(--hand);
+  font-size: 1.35rem;
+  line-height: 1.05;
+  color: var(--pencil);
+  margin-top: 2px;
+}
+.drawing.float-left { float: left; width: 31%; margin: 4px 26px 8px -10px; }
+.drawing.wide { margin: 14px -20px 10px; }
+.drawing.wide figcaption { text-align: right; padding-right: 30px; transform: rotate(-1deg); }
+
+/* ---------- the three-elf flag ---------- */
+
+.flag {
+  clear: both;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 4px;
+  margin: 20px 0 4px;
+}
+.flag svg { width: 64px; height: 92px; overflow: visible; }
+.flag + p.hand-note {
+  text-align: center;
+  font-family: var(--hand);
+  font-size: 1.45rem;
+  color: var(--ink-soft);
+  margin: 0 0 20px;
+}
+
+/* ---------- typed note: an index card pinned in ---------- */
+
+.card {
+  clear: both;
+  position: relative;
+  font-family: var(--type);
+  font-size: .95rem;
+  line-height: 1.55;
+  background:
+    linear-gradient(transparent 0 30px, rgba(180, 60, 50, .45) 30px 31px, transparent 31px),
+    repeating-linear-gradient(transparent 0 23px, rgba(70, 110, 160, .22) 23px 24px),
+    #fdfbf4;
+  background-position: 0 0, 0 8px;
+  padding: 38px 26px 18px;
+  margin: 34px 30px 30px 10px;
+  box-shadow: 0 6px 14px -6px rgba(60,40,10,.5);
+  transform: rotate(-1deg);
+}
+.card .card-head {
+  position: absolute;
+  top: 5px; left: 26px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .78rem;
+}
+.card p { margin: 0 0 .8em; }
+.card p:last-child { margin-bottom: 0; }
+.card .stamp {
+  position: absolute;
+  right: -14px; top: -16px;
+  font-family: var(--serif-sc);
+  color: var(--hat);
+  border: 2px solid var(--hat);
+  border-radius: 50%;
+  width: 82px; height: 82px;
+  display: grid; place-items: center;
+  text-align: center;
+  font-size: .78rem;
+  line-height: 1.05;
+  transform: rotate(14deg);
+  opacity: .82;
+  background: rgba(253,251,244,.4);
+}
+
+/* ---------- pull quote: the street sign ---------- */
+
+.sign-quote {
+  clear: both;
+  margin: 30px 0;
+  padding: 0 34px;
+  text-align: center;
+  font-family: var(--hand);
+  font-size: 2.15rem;
+  line-height: 1.05;
+  color: var(--ink);
+}
+.sign-quote cite {
+  display: block;
+  font-family: var(--type);
+  font-style: normal;
+  font-size: .82rem;
+  color: var(--ink-soft);
+  margin-top: 10px;
+}
+
+.signature {
+  font-family: var(--hand);
+  font-size: 3.4rem;
+  line-height: 1;
+  color: var(--hat);
+  margin: 6px 0 0;
+  transform: rotate(-3deg);
+  transform-origin: left;
+}
+
+/* ---------- sidebar ---------- */
+
+.sidebar { font-size: 1.02rem; line-height: 1.5; }
+.sidebar section {
+  margin-bottom: 30px;
+}
+.sidebar h3 {
+  font-family: var(--serif-sc);
+  font-weight: 400;
+  font-size: 1.12rem;
+  letter-spacing: .08em;
+  margin: 0 0 8px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--ink);
+  box-shadow: 0 3px 0 -2px var(--ink);
+}
+.sidebar ul { list-style: none; padding: 0; margin: 0; }
+.sidebar li { padding-left: 1.1em; text-indent: -1.1em; margin-bottom: 3px; }
+.sidebar li::before { content: "\2618\00a0"; color: var(--hat); } /* shamrock */
+
+.facts dl { margin: 0; font-family: var(--type); font-size: .86rem; }
+.facts dt { color: var(--ink-soft); text-transform: uppercase; letter-spacing: .08em; font-size: .72rem; margin-top: 8px; }
+.facts dd { margin: 0; }
+
+.actual-size {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  margin: 6px 0 4px;
+}
+.actual-size img {
+  height: 55mm; /* a real elf is 55 mm tall: on a well-behaved screen, this is life size */
+  width: auto;
+  mix-blend-mode: multiply;
+}
+.actual-size .ruler {
+  height: 55mm;
+  width: 18px;
+  border-left: 1.5px solid var(--ink);
+  background: repeating-linear-gradient(to top, var(--ink) 0 1px, transparent 1px 5mm) left / 8px 100% no-repeat,
+              repeating-linear-gradient(to top, var(--ink) 0 1.5px, transparent 1.5px 10mm) left / 14px 100% no-repeat;
+}
+.actual-size + .hand {
+  font-family: var(--hand);
+  font-size: 1.3rem;
+  line-height: 1.05;
+  color: var(--pencil);
+  transform: rotate(-2deg);
+}
+
+.badge {
+  margin: 0 auto;
+  width: 78%;
+  transform: rotate(3deg);
+}
+
+.sidebar .elsewhere { font-family: var(--type); font-size: .88rem; }
+
+/* ---------- marquee: the old sign, scrolling ---------- */
+
+.marquee {
+  margin: 44px -46px 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: var(--hand);
+  font-size: 1.75rem;
+  line-height: 1;
+  padding: 9px 0 5px;
+  background: rgba(26, 107, 60, .07);
+}
+.marquee .track { display: inline-block; animation: drift 60s linear infinite; }
+.marquee span { margin: 0 18px; }
+.marquee .dot { color: var(--squirrel); }
+@keyframes drift { to { transform: translateX(-50%); } }
+
+/* ---------- footer ---------- */
+
+.foot {
+  text-align: center;
+  font-family: var(--type);
+  font-size: .8rem;
+  color: var(--ink-soft);
+  margin-top: 24px;
+}
+.foot .tiny-elf { display: inline-block; width: 16px; vertical-align: -4px; }
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 860px) {
+  .columns { grid-template-columns: 1fr; }
+  .sidebar { margin-top: 20px; border-top: 1px dashed var(--pencil); padding-top: 24px; }
+  .snap.right { margin-right: -14px; }
+}
+
+@media (max-width: 600px) {
+  body { padding: 14px 8px 40px; font-size: 1.08rem; }
+  .sheet { padding: 18px 18px 30px; }
+  .banner { margin: 18px -8px 0; }
+  .banner .note { font-size: 1.15rem; }
+  .page-title { font-size: 2.3rem; }
+  .snap.right, .snap.left, .snap.small { float: none; width: 86%; margin: 18px auto 22px; }
+  .pile { height: auto; }
+  .pile .snap { position: relative; width: 86%; left: auto !important; right: auto !important; top: auto !important; margin: 18px auto; }
+  .drawing.float-left { float: none; width: 70%; margin: 10px auto; }
+  .drawing.wide { margin: 10px -6px; }
+  .card { margin: 30px 4px; }
+  .card .stamp { right: -6px; width: 70px; height: 70px; font-size: .68rem; }
+  .sign-quote { font-size: 1.8rem; padding: 0 6px; }
+  .marquee { margin: 34px -18px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee .track { animation: none; }
+}
+
+@media print {
+  body { background: none; padding: 0; }
+  .sheet::before, .sheet::after { box-shadow: none; -webkit-mask: none; mask: none; }
+  .marquee { display: none; }
+}
