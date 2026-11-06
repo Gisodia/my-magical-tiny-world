@@ -900,6 +900,132 @@ a:hover { color: var(--jay); text-decoration-style: wavy; }
   .bench figure:not(:first-of-type) { width: 70%; justify-self: center; }
 }
 
+/* =========================================================
+   JOURNAL: a weblog, the old-fashioned way
+   ========================================================= */
+
+.date-header {
+  font-weight: 400;
+  font-family: var(--type);
+  font-size: .8rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 40px 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.date-header::after { content: ""; flex: 1; border-top: 1px dashed var(--pencil); }
+.date-header:first-of-type { margin-top: 10px; }
+
+.entry { scroll-margin-top: 20px; }
+.story .entry h2 {
+  font-family: var(--serif);
+  font-size: 2rem;
+  letter-spacing: 0;
+  margin: 4px 0 6px;
+  line-height: 1.12;
+}
+.entry h2 a { color: var(--ink); text-decoration: none; }
+.entry h2 a:hover { color: var(--hat); text-decoration: underline wavy var(--squirrel); }
+.entry .byline {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--hand); font-size: 1.4rem; line-height: 1; color: var(--ink-soft);
+  margin: 0 0 16px;
+}
+.entry .byline img { width: 30px; mix-blend-mode: multiply; }
+.entry-foot {
+  clear: both;
+  font-family: var(--type);
+  font-size: .78rem;
+  color: var(--ink-soft);
+  border-top: 1px dashed var(--pencil);
+  padding-top: 6px;
+  margin-top: 18px;
+}
+.entry-foot a { color: var(--ink-soft); }
+
+/* ps notes squeezed in by a second elf */
+.elf-ps {
+  font-family: var(--hand);
+  font-size: 1.5rem;
+  line-height: 1.05;
+  color: var(--squirrel);
+  margin: 4px 0 14px 24px;
+  transform: rotate(-1.2deg);
+}
+
+/* the review card */
+.review-card {
+  clear: both;
+  position: relative;
+  background: #fdfbf4;
+  padding: 20px 22px 18px;
+  margin: 22px 8px 18px 0;
+  box-shadow: 0 1px 1px rgba(0,0,0,.12), 0 10px 18px -8px rgba(80,40,50,.45);
+  transform: rotate(-.7deg);
+  font-family: var(--type);
+  font-size: .9rem;
+}
+.review-card .rc-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  border-bottom: 2px solid var(--ink);
+  box-shadow: 0 3px 0 -2px var(--ink);
+  padding-bottom: 5px; margin-bottom: 12px;
+}
+.review-card .rc-head b { font-family: var(--serif-sc); font-weight: 400; font-size: 1.35rem; letter-spacing: .04em; }
+.review-card dl { display: grid; grid-template-columns: 9.5em minmax(0, 1fr); gap: 7px 12px; margin: 0; }
+.review-card dt { text-transform: uppercase; letter-spacing: .08em; font-size: .72rem; color: var(--ink-soft); padding-top: 2px; }
+.review-card dd { margin: 0; border-bottom: 1px dotted var(--pencil); padding-bottom: 3px; }
+.review-card dd.handwritten { font-family: var(--hand); font-size: 1.45rem; line-height: 1; color: var(--hat); }
+.review-card .stamp {
+  position: absolute; right: 14px; bottom: -14px;
+  font-family: var(--serif-sc); font-size: .74rem; line-height: 1.05; text-align: center;
+  color: var(--squirrel); border: 2px solid var(--squirrel); border-radius: 50%;
+  width: 78px; height: 78px; display: grid; place-items: center;
+  transform: rotate(-12deg); opacity: .85; background: rgba(253,251,244,.5);
+}
+
+.acorns { display: inline-flex; gap: 3px; vertical-align: -5px; }
+.acorns svg { width: 18px; height: 22px; }
+
+/* how-we-score list */
+.scale-list { list-style: none; padding: 0; margin: 10px 0 16px; }
+.scale-list li { display: flex; gap: 10px; align-items: baseline; margin-bottom: 6px; }
+.scale-list .acorns { flex: none; min-width: 108px; }
+
+/* a ticket stub for outings */
+.ticket {
+  float: right;
+  width: 190px;
+  margin: 6px -20px 14px 24px;
+  background: #fbf5ea;
+  border: 1.5px dashed var(--ink);
+  outline: 6px solid #fbf5ea;
+  padding: 12px 12px 10px;
+  text-align: center;
+  font-family: var(--type);
+  font-size: .78rem;
+  line-height: 1.35;
+  transform: rotate(3deg);
+  box-shadow: 0 8px 14px -8px rgba(80,40,50,.55);
+}
+.ticket b { display: block; font-family: var(--serif-sc); font-weight: 400; font-size: 1.25rem; line-height: 1.05; margin: 4px 0; color: var(--hat); }
+.ticket .admit { letter-spacing: .2em; text-transform: uppercase; font-size: .66rem; }
+.ticket .hand { font-family: var(--hand); font-size: 1.25rem; color: var(--squirrel); display: block; margin-top: 6px; }
+
+.sidebar .archive li::before { content: "\25B8\00a0"; color: var(--hat); }
+.sidebar .count { font-family: var(--type); font-size: .8rem; color: var(--ink-soft); }
+
+@media (max-width: 600px) {
+  .story .entry h2 { font-size: 1.6rem; }
+  .review-card { margin-right: 0; padding: 18px 14px 20px; }
+  .review-card dl { grid-template-columns: 1fr; gap: 2px; }
+  .review-card dt { padding-top: 8px; }
+  .ticket { float: none; margin: 16px auto 22px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .marquee .track { animation: none; }
 }

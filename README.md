@@ -11,7 +11,7 @@ Plain HTML and CSS, hosted on GitHub Pages. No build step, no backend, no paymen
 | Home | `index.html` | done |
 | My Tiny World | `my-tiny-world.html` | done |
 | Makers | `makers.html` | not built yet |
-| Journal | `journal.html` | not built yet |
+| Journal | `journal.html` | done |
 | About | `about.html` | done |
 
 ## Layout
